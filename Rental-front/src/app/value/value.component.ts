@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ValueComponent implements OnInit {
 
-  values : any;
+ values   : any;
 
   constructor(private http: HttpClient) {  } 
 

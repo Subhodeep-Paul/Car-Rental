@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Rental.Migrations
 {
@@ -11,18 +11,18 @@ namespace Rental.Migrations
                 name: "TBL_USER",
                 columns: table => new
                 {
-                    A_ID = table.Column<Guid>(nullable: false)
+                    A_ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     A_FIRST_NAME = table.Column<string>(nullable: true),
                     A_LAST_NAME = table.Column<string>(nullable: true),
                     A_EMAIL = table.Column<string>(nullable: true),
-                    A_PASSWORD = table.Column<string>(nullable: true)
+                    A_PASSWORD_HASH = table.Column<byte[]>(nullable: true),
+                    A_PASSWORD_SALT = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TBL_USER", x => x.A_ID);
                 });
-            
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -30,7 +30,5 @@ namespace Rental.Migrations
             migrationBuilder.DropTable(
                 name: "TBL_USER");
         }
-
-     
     }
 }
