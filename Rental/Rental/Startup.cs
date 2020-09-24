@@ -41,6 +41,10 @@ namespace Rental
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler();
+            }
 
             //app.UseHttpsRedirection();
 

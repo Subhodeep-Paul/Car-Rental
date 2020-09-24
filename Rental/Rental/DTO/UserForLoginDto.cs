@@ -14,5 +14,7 @@ namespace Rental.DTO
         [Required]
         public string Password { get; set; }
 
+        public string firstname { get; set; }
+
     }
 }

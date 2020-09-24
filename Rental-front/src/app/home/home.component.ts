@@ -1,5 +1,6 @@
+import { AuthService } from './../_services/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +11,11 @@ export class HomeComponent implements OnInit {
 
   registerMode=false;
 
+  hide:boolean;
+  
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private authService : AuthService) { }
 
   ngOnInit(){
     
@@ -27,5 +31,15 @@ export class HomeComponent implements OnInit {
     this.registerMode=registerMode;
 
   }
+
+  hideRegisterButton(){
+    this.hide=this.authService.hideRegister;
+    return this.hide;
+  }
+
+ 
+ 
+
+
 
 }
