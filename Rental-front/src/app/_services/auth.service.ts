@@ -10,7 +10,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthService {
 
-  hideRegister : boolean= true;
+  hideRegister =true;
   jwtHelper = new JwtHelperService();
   decodedToken : any;
 
@@ -23,11 +23,13 @@ login(model:any){
   .pipe(
     map((response:any) => {
       const user = response;
+     
       if(user)
       {
         localStorage.setItem('token', user.token);
         this.decodedToken=this.jwtHelper.decodeToken(user.token);
         console.log(this.decodedToken);
+        
       }
     })
   );
@@ -42,6 +44,7 @@ login(model:any){
   loggedIn(){
     const token = localStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(token);
+    
   }
 
   

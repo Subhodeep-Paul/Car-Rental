@@ -33,8 +33,8 @@ export class HomeComponent implements OnInit {
   }
 
   hideRegisterButton(){
-    this.hide=this.authService.hideRegister;
-    return this.hide;
+    return (this.authService.hideRegister);
+    
   }
 
  

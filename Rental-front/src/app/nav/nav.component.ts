@@ -22,9 +22,11 @@ export class NavComponent implements OnInit {
 
   login(){
     this.authService.login(this.model).subscribe(next => {
+      
         this.alertify.success('Logged in successfully');
+        this.authService.hideRegister=false;;
 
-        this.authService.hideRegister=false;
+        
       }, error => {
         this.alertify.error('Invalid Credentials');
       },() => {
@@ -39,7 +41,9 @@ export class NavComponent implements OnInit {
   }
 
   logout(){
-
+    
+    this.authService.hideRegister=true;
+    
     localStorage.removeItem('token');
     this.authService.hideRegister=true;
     this.alertify.message("Logged Out");
