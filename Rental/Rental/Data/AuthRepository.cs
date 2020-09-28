@@ -17,6 +17,8 @@ namespace Rental.Data
         }
 
 
+
+
         public async Task<TBL_USER> Login(string emailid, string password, string firstname)
         {
             var email = await _context.TBL_USER.FirstOrDefaultAsync(x => x.A_EMAIL == emailid) ;

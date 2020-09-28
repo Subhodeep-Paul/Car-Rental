@@ -1,0 +1,45 @@
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-3">
+            <p> Filters </p>
+        </div>
+        <div class="col-9">
+            
+           <div *ngFor="let value of carValues">
+            <div class="jumbotron" *ngIf="value.a_IS_AVAILABLE">
+                <div class="row" >
+                    <div class="col-2 ">
+                        <i class="fa fa-car fa-4x" ></i>
+                    </div>
+                    <div class="col-6 ">
+                        <div class="font-weight-bold text-capitalize" style="font-size:30px">
+                            {{value.a_COMPANY}}  {{value.a_MODEL}}
+                        </div>
+                        <hr>
+                        <div class="text-uppercase">
+                            <img src="https://icon-library.com/images/fuel-icon-png/fuel-icon-png-8.jpg" width="20" height="20" class="mr-1">
+                            {{value.a_FUEL_TYPE}}     
+                            <img src="https://static.thenounproject.com/png/205474-200.png" width="20" height="20" class="mr-1 ml-1">
+                            {{value.a_TRANSMISSION}}    
+                            <img src="https://www.iconfinder.com/data/icons/car-engine-dashboard-lights-solid-style-set-2/91/Car_Engine_-_Dashboard_Lights_76-512.png" width="20" height="20" class="mr-1 ml-1">
+                            {{value.a_NUMBER_OF_SEATS}}  
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        Price
+                    </div>
+                    <div>
+                        <button class="btn btn-primary btn-large">View Car</button>
+                    </div>
+                   
+                </div>
+                
+                
+
+            </div>
+           </div>
+            
+        </div>
+    </div>
+</div>

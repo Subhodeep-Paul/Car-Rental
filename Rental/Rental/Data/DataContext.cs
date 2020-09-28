@@ -13,5 +13,6 @@ namespace Rental.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<TBL_USER> TBL_USER { get; set; }
+        public DbSet<Car> TBL_CAR { get; set; }
     }
 }
