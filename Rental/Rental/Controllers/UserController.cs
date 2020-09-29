@@ -11,10 +11,10 @@ namespace Rental.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly DataContext _context;
-        public ValuesController(DataContext context )
+        public UserController(DataContext context )
         {
             _context = context;
         }

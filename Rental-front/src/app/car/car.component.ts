@@ -1,6 +1,9 @@
+import { Car } from './../_models/car';
+import { CarService } from './../_services/car.service';
+import { environment } from './../../environments/environment';
 import { AlertifyService } from './../_services/alertify.service';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-car',
@@ -9,23 +12,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarComponent implements OnInit {
 
-  carValues : any;
-  baseUrl = 'http://localhost:5001/api/';
+   carValues : Car[];
+  baseUrl = environment.apiUrl;
 
 
-  constructor(private http : HttpClient , private alertify : AlertifyService) { }
+  constructor(private http : HttpClient , private alertify : AlertifyService, private carService : CarService) { }
 
   ngOnInit(): void {
     this.getValues();
   }
 
   getValues(){
-    this.http.get(this.baseUrl + 'car').subscribe(response => {
+    this.carService.getAllCars().subscribe(response => {
       this.carValues=response;
+      console.log(this.carValues);
     }, error => {
       console.log(error);
     })
   }
+
+
 
 
 }

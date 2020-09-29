@@ -1,3 +1,6 @@
+import { UserEditResolver } from './_resolvers/user-edit.resolver';
+import { CarDetailResolver } from './_resolvers/car-detail.resolver';
+import { CarService } from './_services/car.service';
 import { appRoutes } from './../routes';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './_services/auth.service';
@@ -15,6 +18,8 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CarComponent } from './car/car.component';
+import { CarDetailComponent } from './car-detail/car-detail.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
  
 @NgModule({
@@ -23,7 +28,9 @@ import { CarComponent } from './car/car.component';
     NavComponent,
     HomeComponent,
     RegisterComponent,
-    CarComponent
+    CarComponent,
+    CarDetailComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,10 @@ import { CarComponent } from './car/car.component';
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    AuthService
+    AuthService,
+    CarService,
+    CarDetailResolver,
+    UserEditResolver
   ],
   bootstrap: [AppComponent]
 })
