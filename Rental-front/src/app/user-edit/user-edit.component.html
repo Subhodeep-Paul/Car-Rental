@@ -13,30 +13,24 @@
                 <br>
                 <div class="form-group">
                     <label for="firstname"> Firstname : </label> 
-                    <input type="text" class="form-control" id="firstname" name="firstname" required  [ngModel]=user.a_FIRST_NAME >
+                    <input type="text" class="form-control" id="firstname" name="firstname" required  [(ngModel)]=user.a_FIRST_NAME >
                     
                   </div>
             
                   <div class="form-group">
                     <label for="lastname"> Lastname : </label>
-                    <input type="text" class="form-control" id="lastname" name="lastname" required  [ngModel]=user.a_LAST_NAME >
+                    <input type="text" class="form-control" id="lastname" name="lastname" required  [(ngModel)]=user.a_LAST_NAME >
                   </div>
             
                 <div class="form-group">
                     <label for="email"> Email : </label>
-                  <input type="email" class="form-control" id="email" name="email" required email  [ngModel]=user.a_EMAIL >
+                  <input type="email" class="form-control" id="email" name="email" required email  [(ngModel)]=user.a_EMAIL >
                 </div>
               
                 
               
-                <div class="form-group text-center">
-                  <button   class="btn btn-success mr-2"  type="submit">Save Changes</button>
-                  <button class="btn btn-danger" type="button" [routerLink]="['/car']"  >Cancel</button>
-                </div>
               </form>
         </div>
-        <div class="col-4">
-
-        </div>
+        
     </div>
 </div>

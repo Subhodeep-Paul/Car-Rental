@@ -25,8 +25,8 @@ namespace Rental.Data
         public async Task<Car> GetCar(int id)
         {
             IQueryable<Car> query = _context.TBL_CAR;
-            query = query.Where(x => x.A_ID == id);
-            return await query.FirstOrDefaultAsync();
+           
+            return await query.FirstOrDefaultAsync(x => x.A_ID == id);
         }
 
         public async Task<bool> SaveChangesAsync()

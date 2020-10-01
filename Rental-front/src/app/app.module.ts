@@ -20,6 +20,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CarComponent } from './car/car.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
  
 @NgModule({
@@ -30,7 +31,8 @@ import { UserEditComponent } from './user-edit/user-edit.component';
     RegisterComponent,
     CarComponent,
     CarDetailComponent,
-    UserEditComponent
+    UserEditComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
