@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row mt-5">
-        <div class="col-3">
+        <div class="col-4">
             <div class="jumbotron">
                 <h5>User  Details :</h5>
                 <hr>
@@ -8,15 +8,44 @@
                 <h6> Email : {{user.a_EMAIL}}</h6>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-8 ">
             <div class="jumbotron">
-                Checkout form 
+                <h4>Complete Booking:  </h4>
+                <hr><br>
+                <form [formGroup]="checkoutForm" (ngSubmit)="Book()">
+
+                   <div>
+                    Rate : <i class="fa fa-inr"></i>  {{cardetails.a_PRICE}} / month
+                    <br><br>
+                   </div>
+
+                    <div class="form-group">
+                        <label for="tenure">Tenure :</label><br>
+                        <input id="tenure" formControlName="Tenure" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="sd">Start Date :</label>
+                        <input  id="sd" [ngClass]="{'is-invalid': checkoutForm.get('startDate').errors && checkoutForm.get('startDate').touched}" class="form-control"
+                          placeholder="Start Date" formControlName="startDate" type="date" >
+                        <div class="invalid-feedback" *ngIf="checkoutForm.get('startDate').touched && checkoutForm.get('startDate').hasError('required')">Start Date is required</div>
+                      </div>
+
+                      
+
+                      <div class="form-group">
+                        <label for="pr">Price :  <i class="fa fa-inr"></i></label><br>
+                        <input id="pr" formControlName="Price" type="text" class="form-control">
+                    </div>
+
+                      
+
+                      <button [disabled]="!checkoutForm.valid"  class="btn btn-success mr-2"  type="submit">Book</button>
+
+
+
+                </form>
             </div>
         </div>
-        <div class="col-3">
-            <div class="jumbotron">
-                Price details
-            </div>
-        </div>
+      
     </div>
 </div>

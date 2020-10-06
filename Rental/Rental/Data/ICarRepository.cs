@@ -11,6 +11,7 @@ namespace Rental.Data
        
         public Task<Car[]> GetCar();
         public Task<Car> GetCar(int id);
+        public Task<Car> UpdateAvailability(int id);
         public void AddCar(Car car);
         public Task<bool> SaveChangesAsync();
     }

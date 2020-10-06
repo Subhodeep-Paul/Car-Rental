@@ -19,6 +19,40 @@ namespace Rental.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Rental.Models.Booking", b =>
+                {
+                    b.Property<int>("A_ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("A_FK_CARID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("A_FK_USERID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("A_LEASE_END_DATE")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("A_LEASE_START_DATE")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("A_PRICE")
+                        .HasColumnType("int");
+
+                    b.Property<int>("A_TENURE")
+                        .HasColumnType("int");
+
+                    b.HasKey("A_ID");
+
+                    b.HasIndex("A_FK_CARID");
+
+                    b.HasIndex("A_FK_USERID");
+
+                    b.ToTable("TBL_BOOKING");
+                });
+
             modelBuilder.Entity("Rental.Models.Car", b =>
                 {
                     b.Property<int>("A_ID")
@@ -42,6 +76,9 @@ namespace Rental.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("A_NUMBER_OF_SEATS")
+                        .HasColumnType("int");
+
+                    b.Property<int>("A_PRICE")
                         .HasColumnType("int");
 
                     b.Property<string>("A_TRANSMISSION")
@@ -80,6 +117,21 @@ namespace Rental.Migrations
                     b.HasKey("A_ID");
 
                     b.ToTable("TBL_USER");
+                });
+
+            modelBuilder.Entity("Rental.Models.Booking", b =>
+                {
+                    b.HasOne("Rental.Models.Car", "Car")
+                        .WithMany("A_BOOKING")
+                        .HasForeignKey("A_FK_CARID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Rental.Models.TBL_USER", "TBL_USER")
+                        .WithMany("A_BOOKING")
+                        .HasForeignKey("A_FK_USERID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

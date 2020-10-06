@@ -14,5 +14,9 @@ namespace Rental.Data
 
         public DbSet<TBL_USER> TBL_USER { get; set; }
         public DbSet<Car> TBL_CAR { get; set; }
+
+       
+
+        public DbSet<Booking> TBL_BOOKING { get; set; }
     }
 }

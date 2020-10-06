@@ -8,6 +8,7 @@ export interface Car {
     a_FUEL_TYPE: string;
     a_TRANSMISSION: string;
     a_IS_AVAILABLE: boolean;
+    a_PRICE : number;
 
     
 }

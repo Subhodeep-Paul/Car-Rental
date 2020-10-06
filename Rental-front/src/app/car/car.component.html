@@ -41,7 +41,7 @@
                     <div class="col-2 ">
                         <i class="fa fa-car fa-4x" ></i>
                     </div>
-                    <div class="col-6 ">
+                    <div class="col-5 ">
                         <div class="font-weight-bold text-capitalize" style="font-size:30px">
                             {{value.a_COMPANY}}  {{value.a_MODEL}}
                         </div>
@@ -55,8 +55,8 @@
                             {{value.a_NUMBER_OF_SEATS}}  
                         </div>
                     </div>
-                    <div class="col-2">
-                        Price
+                    <div class="col-3 font-weight-bold">
+                        <i class="fa fa-inr"></i> {{value.a_PRICE}} / month
                     </div>
                     <div>
                         <button class="btn btn-success btn-large"  [routerLink]="['/car', value.a_ID]"  >View Car</button>

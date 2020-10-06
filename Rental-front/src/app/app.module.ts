@@ -1,3 +1,4 @@
+import { BookedCarResolver } from './_resolvers/booked-car.resolver';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
 import { CarDetailResolver } from './_resolvers/car-detail.resolver';
 import { CarService } from './_services/car.service';
@@ -7,7 +8,7 @@ import { AuthService } from './_services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from  '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,7 @@ import { CarComponent } from './car/car.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { UserBookingsComponent } from './user-bookings/user-bookings.component';
 
  
 @NgModule({
@@ -32,13 +34,15 @@ import { CheckoutComponent } from './checkout/checkout.component';
     CarComponent,
     CarDetailComponent,
     UserEditComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    UserBookingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
@@ -46,7 +50,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     AuthService,
     CarService,
     CarDetailResolver,
-    UserEditResolver
+    UserEditResolver,
+    BookedCarResolver
   ],
   bootstrap: [AppComponent]
 })

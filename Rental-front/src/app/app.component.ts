@@ -1,3 +1,4 @@
+import { CarService } from './_services/car.service';
 import { AuthService } from './_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -11,7 +12,7 @@ export class AppComponent implements OnInit{
 
   jwtHelper = new JwtHelperService();
 
-  constructor( private authservice : AuthService){}
+  constructor( private authservice : AuthService, private carservice: CarService){}
 
   ngOnInit() {
     const token = localStorage.getItem('token');
@@ -22,6 +23,8 @@ export class AppComponent implements OnInit{
 
     if(this.authservice.loggedIn())
     this.authservice.hideRegister=false;
+
+    this.carservice.months;
   }
 
 }

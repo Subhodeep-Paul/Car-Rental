@@ -37,6 +37,15 @@ namespace Rental.Controllers
             return Ok(result);
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateAvailability(int id)
+        {
+            var update= await _repo.UpdateAvailability(id);
+            await _repo.SaveChangesAsync();
+            return Ok(update);
+            
+        }
+
 
         [HttpPost("Add")]
         public async Task<IActionResult> PostCar(CarForAddDto carForAdd )

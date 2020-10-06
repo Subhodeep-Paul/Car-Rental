@@ -22,6 +22,7 @@ namespace Rental.Models
                 .ForMember(dest => dest.A_IS_AVAILABLE, opt => opt.MapFrom(src => src.Available))
                 .ForMember(dest => dest.A_COMPANY, opt => opt.MapFrom(src => src.Company))
                 .ForMember(dest => dest.A_TRANSMISSION, opt => opt.MapFrom(src => src.Transmission))
+                .ForMember(dest => dest.A_PRICE, opt => opt.MapFrom(src => src.price))
                 .ReverseMap();
         }
     }

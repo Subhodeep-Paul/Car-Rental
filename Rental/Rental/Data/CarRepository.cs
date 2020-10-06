@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Rental.DTO;
 using Rental.Models;
 using System;
@@ -22,11 +23,27 @@ namespace Rental.Data
             _context.TBL_CAR.Add(car);
         }
 
+        public async Task<Car> UpdateAvailability(int id)
+        {
+            var car=await _context.TBL_CAR.FirstOrDefaultAsync(x => x.A_ID == id);
+
+            if(car != null)
+            {
+                car.A_IS_AVAILABLE = !car.A_IS_AVAILABLE;
+              
+            }
+
+            return car;
+
+
+
+        }
+
         public async Task<Car> GetCar(int id)
         {
             IQueryable<Car> query = _context.TBL_CAR;
            
-            return await query.FirstOrDefaultAsync(x => x.A_ID == id);
+            return await query.Include(p => p.A_BOOKING).FirstOrDefaultAsync(x => x.A_ID == id);
         }
 
         public async Task<bool> SaveChangesAsync()

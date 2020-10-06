@@ -18,6 +18,10 @@ namespace Rental.Models
         public string A_TRANSMISSION { get; set; }
         public bool A_IS_AVAILABLE { get; set; }
 
+        public int A_PRICE { get; set; }
+
+        public ICollection<Booking> A_BOOKING { get; set; }
+
 
 
 

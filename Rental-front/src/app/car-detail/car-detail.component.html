@@ -13,24 +13,27 @@
         </div>
         <div class="col-7">
             <div class="jumbotron mt-5">
-                <h3 class="text-capitalize font-weight-normal">Subscription tenure : </h3>
-                <hr>
-                <select class="form-control ">
-                    <option class="dropdown-item disabled">Months</option>
+                
+            
+               <form [formGroup]="monthForm" (ngSubmit)="monthAdd()">
 
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                </select>
+                <h3>
+                    <label for="months" class="font-weight-bold">Subsciption tenure :</label> 
+                </h3>
+                
+                <select formControlName="month" id="dropdown">
+                    <option  selected  >Months</option>
+                    <option *ngFor="let mon of months">{{mon}}</option>
+                   
+                </select> 
                 <br>
-                <h4 > Price : <i class="fa fa-inr"></i>  10,000 / month</h4>
+                <br>
+                <h4 > Price : <i class="fa fa-inr"></i>  {{carvalue.a_PRICE}} / month</h4>
                 <h5 class="font-weight-light font-italic"> (inclusive of taxes) </h5><br>
-                <button class="btn btn-info btn-lg btn-block " [routerLink]="['/checkout']"  > Proceed to Check Eligibility </button>
+                <button class="btn btn-info btn-lg btn-block "  [routerLink]="['/checkout',carvalue.a_ID]" type="submit" > Proceed to Check Eligibility </button>
 
 
+               </form>
             </div>
         </div>
     </div>

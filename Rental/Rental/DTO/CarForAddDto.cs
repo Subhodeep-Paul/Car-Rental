@@ -11,5 +11,7 @@
         public string Transmission { get; set; }
         public bool Available { get; set; }
 
+        public int price { get; set; }
+
     }
 }

@@ -1,3 +1,5 @@
+import { BookedCarResolver } from './app/_resolvers/booked-car.resolver';
+import { UserBookingsComponent } from './app/user-bookings/user-bookings.component';
 import { CheckoutComponent } from './app/checkout/checkout.component';
 import { UserEditResolver } from './app/_resolvers/user-edit.resolver';
 import { UserEditComponent } from './app/user-edit/user-edit.component';
@@ -17,8 +19,9 @@ export const appRoutes : Routes = [
     {path : 'car/:id', component : CarDetailComponent , canActivate:[AuthGuard] , resolve: {car : CarDetailResolver}},
 
     {path : 'user/edit', component : UserEditComponent , canActivate:[AuthGuard],resolve: {user : UserEditResolver}},
-    {path : 'register', component : RegisterComponent , canActivate:[AuthGuard]} ,
-    {path : 'checkout', component : CheckoutComponent , canActivate:[AuthGuard],resolve: {userdetail : UserEditResolver}},
+    {path : 'register', component : RegisterComponent } ,
+    {path : 'bookings', component : UserBookingsComponent , canActivate:[AuthGuard],resolve: {user : UserEditResolver}} ,
+    {path : 'checkout/:id', component : CheckoutComponent , canActivate:[AuthGuard],resolve: {userdetail : UserEditResolver, car: CarDetailResolver}},
 
     {path : '**', redirectTo:'' , pathMatch: 'full'}
 

@@ -8,11 +8,26 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200922102634_InitialCreate.cs" />
     <Compile Remove="Migrations\20200922102634_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20201005112727_addedcheckout.cs" />
+    <Compile Remove="Migrations\20201005112727_addedcheckout.Designer.cs" />
+    <Compile Remove="Migrations\20201005113840_addedcheckout2.cs" />
+    <Compile Remove="Migrations\20201005113840_addedcheckout2.Designer.cs" />
+    <Compile Remove="Migrations\20201005133249_addedbooking.cs" />
+    <Compile Remove="Migrations\20201005133249_addedbooking.Designer.cs" />
+    <Compile Remove="Migrations\20201005133727_addedbookingtable.cs" />
+    <Compile Remove="Migrations\20201005133727_addedbookingtable.Designer.cs" />
+    <Compile Remove="Migrations\20201006075618_addedbookingtable2.cs" />
+    <Compile Remove="Migrations\20201006075618_addedbookingtable2.Designer.cs" />
+    <Compile Remove="Migrations\20201006085751_addedbookingICollection.cs" />
+    <Compile Remove="Migrations\20201006085751_addedbookingICollection.Designer.cs" />
+    <Compile Remove="Migrations\20201006090619_addedCarICollection.cs" />
+    <Compile Remove="Migrations\20201006090619_addedCarICollection.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="3.1.8" />

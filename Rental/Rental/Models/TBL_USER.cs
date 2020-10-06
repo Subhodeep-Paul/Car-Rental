@@ -23,6 +23,8 @@ namespace Rental.Models
 
         public string A_CITY { get; set; }
 
+        public ICollection<Booking> A_BOOKING { get; set; }
+
 
 
     }

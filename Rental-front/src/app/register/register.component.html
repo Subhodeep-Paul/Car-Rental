@@ -1,27 +1,34 @@
-<form #registerForm = "ngForm" (ngSubmit)="register(registerForm)">
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <form #registerForm = "ngForm" (ngSubmit)="register(registerForm)">
 
-    <h2 class="text-center text-primary">Sign Up</h2>
-  
-    <hr>
-    <div class="form-group">
-        <input type="text" class="form-control" name="firstname" required placeholder="First Name" [(ngModel)]="model.firstname">
-        
-      </div>
-
-      <div class="form-group">
-        <input type="text" class="form-control" name="lastname" required placeholder="Last Name" [(ngModel)]="model.lastname">
-      </div>
-
-    <div class="form-group">
-      <input type="email" class="form-control"  name="email" required email  placeholder="Email" [(ngModel)]="model.email">
+        <h2 class="text-center text-primary">Sign Up</h2>
+      
+        <hr>
+        <div class="form-group">
+            <input type="text" class="form-control" name="firstname" required placeholder="First Name" [(ngModel)]="model.firstname">
+            
+          </div>
+    
+          <div class="form-group">
+            <input type="text" class="form-control" name="lastname" required placeholder="Last Name" [(ngModel)]="model.lastname">
+          </div>
+    
+        <div class="form-group">
+          <input type="email" class="form-control"  name="email" required email  placeholder="Email" [(ngModel)]="model.email">
+        </div>
+      
+        <div class="form-group">
+          <input type="password" class="form-control" name="password" required placeholder="Password" [(ngModel)]="model.password">
+        </div>
+      
+        <div class="form-group text-center">
+          <button [disabled]="!registerForm.valid"  class="btn btn-success mr-2" [routerLink]="['/home']" type="submit">Register</button>
+          <button class="btn btn-danger" type="button" [routerLink]="['/home']" (click)="cancel()">Cancel</button>
+        </div>
+      </form>
     </div>
-  
-    <div class="form-group">
-      <input type="password" class="form-control" name="password" required placeholder="Password" [(ngModel)]="model.password">
-    </div>
-  
-    <div class="form-group text-center">
-      <button [disabled]="!registerForm.valid"  class="btn btn-success mr-2" [routerLink]="['/home']" type="submit">Register</button>
-      <button class="btn btn-danger" type="button" [routerLink]="['/home']" (click)="cancel()">Cancel</button>
-    </div>
-  </form>
+  </div>
+</div>
