@@ -14,16 +14,16 @@ import { CarDetailComponent } from './app/car-detail/car-detail.component';
 
 export const appRoutes : Routes = [
 
-    {path : '', component : HomeComponent},
+    {path : 'home', component : HomeComponent},
     {path : 'car', component : CarComponent , canActivate:[AuthGuard]},
-    {path : 'car/:id', component : CarDetailComponent , canActivate:[AuthGuard] , resolve: {car : CarDetailResolver}},
+    {path : 'car/:id', component : CarDetailComponent , canActivate:[AuthGuard] , resolve: {car : CarDetailResolver,user : UserEditResolver}},
 
     {path : 'user/edit', component : UserEditComponent , canActivate:[AuthGuard],resolve: {user : UserEditResolver}},
     {path : 'register', component : RegisterComponent } ,
     {path : 'bookings', component : UserBookingsComponent , canActivate:[AuthGuard],resolve: {user : UserEditResolver}} ,
     {path : 'checkout/:id', component : CheckoutComponent , canActivate:[AuthGuard],resolve: {userdetail : UserEditResolver, car: CarDetailResolver}},
 
-    {path : '**', redirectTo:'' , pathMatch: 'full'}
+    {path : '**', redirectTo:'home' , pathMatch: 'full'}
 
 
 ];

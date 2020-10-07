@@ -1,3 +1,4 @@
+import { User } from './../_models/user';
 import { UserService } from './../_services/User.service';
 import { AlertifyService } from './../_services/alertify.service';
 
@@ -16,6 +17,7 @@ export class NavComponent implements OnInit {
   
   model:any ={};
   
+  
 
 
 
@@ -23,6 +25,9 @@ export class NavComponent implements OnInit {
     private userservice : UserService) { }
 
   ngOnInit() {
+    
+
+
   }
 
   login(){
@@ -57,6 +62,9 @@ export class NavComponent implements OnInit {
   }
 
 
+  }
+
+
 
  
-}
+

@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 export class UserService {
 
   baseUrl =environment.apiUrl;
+  id:number;
 
   constructor(private http : HttpClient) { }
 
@@ -19,6 +20,11 @@ export class UserService {
   
   getUser(id):Observable<User>{
     return this.http.get<User>(this.baseUrl + 'User/' +id)
+  }
+
+  getID(id){
+    this.id=id;
+
   }
 
 }

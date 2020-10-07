@@ -4,8 +4,12 @@
         <div class="col-3">
 
         </div>
+        <div class="col-6 mt-5" *ngIf="this.user.a_BOOKING.length==0">
+            <h4>No Bookings.... </h4><br>
+                <button class="btn btn-outline-success btn-lg" [routerLink]="['/car']"  > FIND YOUR CAR</button>
+        </div>
 
-        <div class="col-6">
+        <div class="col-6" *ngIf="this.user.a_BOOKING.length>0">
             
             <table class="text-capitalize table mt-5">
                 <tr>
@@ -39,6 +43,8 @@
 
                 
             </table>
+
+            <button class="btn btn-primary btn-lg mt-5 btn-block" [routerLink]="['/car']"  >View More Cars</button>
            
 
 

@@ -1,3 +1,4 @@
+import { User } from './../_models/user';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -14,8 +15,9 @@ export class CarDetailComponent implements OnInit {
 
   carvalue: Car;
   month : number;
+  user:User;
 
-  months:any = [1,2,3,4,5,6];
+  months:any = [1,2,3,4,5,6,7,8,9,10,11,12];
 
   constructor(private carService : CarService , private alertify : AlertifyService,
     private route :ActivatedRoute , private fb:FormBuilder) { }
@@ -26,6 +28,12 @@ export class CarDetailComponent implements OnInit {
     this.route.data.subscribe(data => {
       this.carvalue = data['car'];
     });
+
+    //getting user data to disable proceed to checkout button
+    this.route.data.subscribe(data => {
+      this.user= data['user'];
+    });
+
 
     
   }

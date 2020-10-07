@@ -3,6 +3,8 @@ import { AuthService } from './../_services/auth.service';
 import { Component,Output, EventEmitter, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   model : any ={};
 
-  constructor(private authservice:AuthService, private alertify : AlertifyService) { }
+  constructor(private authservice:AuthService, private alertify : AlertifyService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -23,11 +25,13 @@ export class RegisterComponent implements OnInit {
     this.authservice.register(this.model).subscribe(() => {
       this.alertify.success("Registration Successful");
       registerForm.reset();
+      
+      
     }, error => {
       
       this.alertify.error(error.error);
       registerForm.reset();
-    });
+    })
     }
 
     cancel(){

@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-5">
+        <div class="col-6">
             <div class="jumbotron mt-5 ">
                 <h2 class="text-uppercase font-weight-bold">{{carvalue.a_COMPANY}}  {{carvalue.a_MODEL}}</h2>
                 <hr>
@@ -10,8 +10,54 @@
                 <h4>Fuel Type : {{carvalue.a_FUEL_TYPE | titlecase}}</h4>
 
             </div>
+            <div class="jumbotron">
+                <h4>Insurance and maintenance includes</h4><hr>
+                <div class="row">
+                    <div class="col-4">
+                        <img src="https://www.revv.co.in/grapheneImages/PDP/insurance-and-maintenance/roadside-assistance.svg">
+                        <h6>24x7 Roadside assistance</h6>
+                        
+                    </div>
+                    <div class="col-4">
+                        <img src="https://www.revv.co.in/grapheneImages/PDP/insurance-and-maintenance/oil-top-up-replacement.svg" alt="">
+                        <h6>Oil top-up or replacement</h6>
+                    </div>
+                    <div class="col-4">
+                        <img src="https://www.revv.co.in/grapheneImages/PDP/insurance-and-maintenance/filter-replacement.svg" alt="">
+                        <h6>Filter replacement</h6>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-4">
+                        <img src="https://www.revv.co.in/grapheneImages/PDP/insurance-and-maintenance/tyre-rotation.svg" alt="">
+                        <h6>Tyre replacement</h6>
+                    </div>
+                    <div class="col-4">
+                        <img src="https://www.revv.co.in/grapheneImages/PDP/insurance-and-maintenance/battery-replacement.svg" alt="">
+                        <h6>Battery replacement</h6>
+                    </div>
+                    <div class="col-4">
+                        <img src="https://www.revv.co.in/grapheneImages/PDP/insurance-and-maintenance/clutch-parts.svg" alt="">
+                        <h6>Clutch parts</h6>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-4">
+                        <img src="https://www.revv.co.in/grapheneImages/PDP/insurance-and-maintenance/brake-parts.svg" alt="">
+                        <h6>Brake parts</h6>
+                    </div>
+                    <div class="col-4">
+                        <img src="https://www.revv.co.in/grapheneImages/PDP/insurance-and-maintenance/suspension-parts.svg" alt="">
+                        <h6>Suspension parts</h6>
+                    </div>
+                    <div class="col-4">
+                        <img src="https://www.revv.co.in/grapheneImages/PDP/insurance-and-maintenance/manufacturer-warranty.svg" alt="">
+                        <h6>Manufacturer warranty</h6>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-7">
+        <div class="col-6" *ngIf="this.user.a_BOOKING.length==0">
             <div class="jumbotron mt-5">
                 
             
@@ -34,6 +80,17 @@
 
 
                </form>
+            </div>
+        </div>
+        <div class="col-6 mt-5" *ngIf="this.user.a_BOOKING.length>0">
+            <br><br>
+            <h3>You already have a booking !!</h3>
+            
+            <br>
+            <div class="btn-group">
+            <button class="btn btn-warning btn-lg " [routerLink]="['/bookings']" > View Bookings </button>
+            
+            <button class="btn btn-info btn-lg " [routerLink]="['/car']" > View more cars </button>
             </div>
         </div>
     </div>

@@ -1,41 +1,28 @@
 
 <div class="container mt-5">
     <div class="row">
-        <div class="col-3">
-            <p class="font-weight-bold" style="font-size:30px"> Filter By </p>
-
-            <div class="jumbotron">
-                <h4>Fuel : </h4>
-                <input type="checkbox" id="petrol" name="petrol" class="mr-2">
-                <label for="petrol"> Petrol</label><br>
-                <input type="checkbox" id="diesel" name="diesel" class="mr-2">
-                <label for="diesel"> Diesel</label><br>
-                
-            </div>
-
-            <div class="jumbotron">
-                <h4>Transmission: </h4>
-                <input type="checkbox" id="auto" name="auto" class="mr-2">
-                <label for="auto"> Automatic</label><br>
-                <input type="checkbox" id="manual" name="manual" class="mr-2">
-                <label for="manual"> Manual</label><br>
-                
-            </div>
-            <div class="jumbotron">
-                <h4>Brand : </h4>
-                <input type="checkbox" id="maruti" name="maruti" class="mr-2">
-                <label for="maruti"> Maruti</label><br>
-                <input type="checkbox" id="hyundai" name="hyundai" class="mr-2">
-                <label for="hyundai"> Hyundai</label><br>
-                <input type="checkbox" id="Kia" name="Kia"class="mr-2" >
-                <label for="Kia"> Kia</label><br> 
-                <input type="checkbox" id="bmw" name="bmw"class="mr-2" >
-                <label for="bmw"> BMW</label><br>
+       
+        <div class="col-3 " id="searchbar">
+            <div class="col-3  fixed-top mt-5 ml-3 " >
+                <br><br>
+                <p class="font-weight-bold" style="font-size:25px"> Filter By :</p>
+                <ul>
+                    <li>Name</li>
+                    <li>Fuel Type</li>
+                    <li>Transmission Type</li>
+                </ul>
+    
+               <div class="search-product">
+                   <input class="form-control"
+                   type="text"
+                   name="search" [(ngModel)]="search" autocomplete="off"
+                   placeholder="Search for a Car">
+               </div>
             </div>
         </div>
-        <div class="col-9">
+        <div class="col-9 ">
             
-           <div *ngFor="let value of carValues">
+           <div *ngFor="let value of carValues | filter:search">
             <div class="jumbotron " *ngIf="value.a_IS_AVAILABLE">
                 <div class="row" >
                     <div class="col-2 ">

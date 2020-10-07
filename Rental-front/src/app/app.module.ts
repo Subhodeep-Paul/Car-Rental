@@ -11,6 +11,7 @@ import {HttpClientModule} from  '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -23,6 +24,7 @@ import { CarDetailComponent } from './car-detail/car-detail.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { UserBookingsComponent } from './user-bookings/user-bookings.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
  
 @NgModule({
@@ -44,7 +46,8 @@ import { UserBookingsComponent } from './user-bookings/user-bookings.component';
     FormsModule,
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    Ng2SearchPipeModule
   ],
   providers: [
     AuthService,

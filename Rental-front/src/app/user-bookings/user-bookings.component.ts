@@ -24,9 +24,9 @@ export class UserBookingsComponent implements OnInit {
       this.user= data['user'];
     });
 
-    console.log(this.user);
-    this.bookingservice.getCar(this.user.a_BOOKING[0].a_FK_CARID);
-
+    
+    
+    if(this.user.a_BOOKING.length>0)
     this.getCar();
 
     
@@ -41,7 +41,7 @@ export class UserBookingsComponent implements OnInit {
   }
 
   getCar(){
-
+    this.bookingservice.getCar(this.user.a_BOOKING[0].a_FK_CARID);
     this.carservice.getCar(this.bookingservice.carid).subscribe(response => {
       this.car=response;
     }, error => {

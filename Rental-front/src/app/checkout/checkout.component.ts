@@ -3,7 +3,7 @@ import { BookingService } from './../_services/booking.service';
 import { Car } from './../_models/car';
 import { CarService } from './../_services/car.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../_models/user';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DateInput } from 'ngx-bootstrap/chronos/test/chain';
@@ -27,7 +27,8 @@ export class CheckoutComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute, public carservice : CarService,
-    private fb : FormBuilder, private bookservice: BookingService, private alertify: AlertifyService) { }
+    private fb : FormBuilder, private bookservice: BookingService, private alertify: AlertifyService,
+    private router: Router) { }
 
   ngOnInit(): void {
 
@@ -75,10 +76,13 @@ export class CheckoutComponent implements OnInit {
 
       this.bookservice.book(this.model).subscribe(() => {
          console.log('booking done');
+         this.checkoutForm.reset();
          this.alertify.success("Booking Done");
       }, error => {
         console.log(error);
         this.alertify.error("Error");
+      }, () => {
+        this.router.navigate(['/bookings']);
       })
 
       
