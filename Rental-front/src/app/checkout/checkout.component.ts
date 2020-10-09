@@ -64,9 +64,14 @@ export class CheckoutComponent implements OnInit {
   }
 
     Book(){
-      
+     
       this.model=this.checkoutForm.value;
       this.date=new Date(this.model['startDate']);
+      if(!(this.date.getDate() >= new Date().getDate())){
+        alert("Please select a correct start date");
+        return;
+      }
+      
       this.date=new Date(this.date.setDate(this.date.getDate() + 30*this.months));
       this.checkoutForm.controls['endDate'].setValue(this.date.toISOString().substring(0,10));
       console.log(this.checkoutForm);

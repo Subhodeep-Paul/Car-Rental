@@ -1,3 +1,5 @@
+import { AdminComponent } from './app/admin/admin.component';
+import { AddcarComponent } from './app/admin/addcar/addcar.component';
 import { BookedCarResolver } from './app/_resolvers/booked-car.resolver';
 import { UserBookingsComponent } from './app/user-bookings/user-bookings.component';
 import { CheckoutComponent } from './app/checkout/checkout.component';
@@ -22,6 +24,9 @@ export const appRoutes : Routes = [
     {path : 'register', component : RegisterComponent } ,
     {path : 'bookings', component : UserBookingsComponent , canActivate:[AuthGuard],resolve: {user : UserEditResolver}} ,
     {path : 'checkout/:id', component : CheckoutComponent , canActivate:[AuthGuard],resolve: {userdetail : UserEditResolver, car: CarDetailResolver}},
+    {path : 'admin', component : AdminComponent},
+   
+   
 
     {path : '**', redirectTo:'home' , pathMatch: 'full'}
 

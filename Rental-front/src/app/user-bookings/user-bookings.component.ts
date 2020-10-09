@@ -11,6 +11,7 @@ import { User } from '../_models/user';
   styleUrls: ['./user-bookings.component.css']
 })
 export class UserBookingsComponent implements OnInit {
+  panelOpenState = false;
   user : User;
   carid:number;
   car:Car;

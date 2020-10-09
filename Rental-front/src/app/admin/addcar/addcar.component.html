@@ -1,0 +1,68 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <form [formGroup]="carForm" (ngSubmit)="addCar()">
+
+                <h4>Add car details :</h4>
+
+                <div class="form-group">
+                    <input  [ngClass]="{'is-invalid': carForm.get('company').errors && carForm.get('company').touched}" class="form-control"
+                      placeholder="Company" formControlName="company" type="text" >
+                    <div class="invalid-feedback" *ngIf="carForm.get('company').touched && carForm.get('company').hasError('required')">Company name is required</div>
+                  </div>
+            
+                  <div class="form-group">
+                    
+                    <input  [ngClass]="{'is-invalid': carForm.get('model').errors && carForm.get('model').touched}" class="form-control"
+                      placeholder="Model" formControlName="model" type="text" >
+                    <div class="invalid-feedback" *ngIf="carForm.get('model').touched && carForm.get('model').hasError('required')">model name is required</div>
+                  </div>
+            
+                  <div class="form-group">
+                   
+                    <input  [ngClass]="{'is-invalid': carForm.get('distance').errors && carForm.get('distance').touched}" class="form-control"
+                      placeholder="Distance done" formControlName="distance" type="number" >
+                    <div class="invalid-feedback" *ngIf="carForm.get('distance').touched && carForm.get('distance').hasError('required')">Distance done is required</div>
+                  </div>
+            
+                  <div class="form-group">
+                    
+                    <input   [ngClass]="{'is-invalid': carForm.get('seats').errors && carForm.get('seats').touched}" class="form-control"
+                      placeholder="Number of seats" formControlName="seats" type="number" >
+                    <div class="invalid-feedback" *ngIf="carForm.get('seats').touched && carForm.get('seats').hasError('required')">Number of seats  is required</div>
+                  </div>
+            
+                  <div class="form-group">
+                    
+                    <input  [ngClass]="{'is-invalid': carForm.get('price').errors && carForm.get('price').touched}" class="form-control"
+                      placeholder="Price / month" formControlName="price" type="number" >
+                    <div class="invalid-feedback" *ngIf="carForm.get('price').touched && carForm.get('price').hasError('required')">Price is required</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="mr-1">Fuel : </label>
+                     <input  type="radio" value="Petrol" name="fuel" formControlName="fuel">
+                     Petrol  &nbsp;
+                     <input type="radio" value="Diesel" name="fuel" formControlName="fuel">     
+                    Diesel
+                  </div>
+            
+                  <div class="form-group">
+                    <label class="mr-1">Transmission: </label>
+                     <input  type="radio" value="automatic" name="transmission" formControlName="transmission">
+                     Automatic &nbsp;
+                     <input type="radio" value="manual" name="transmission" formControlName="transmission">     
+                    Manual
+                  </div>
+            
+                  <button [disabled]="!carForm.valid"  class="btn btn-success mr-2"  type="submit">ADD CAR</button>
+            
+            
+            
+            
+            
+                </form>
+        </div>
+    </div>
+</div>

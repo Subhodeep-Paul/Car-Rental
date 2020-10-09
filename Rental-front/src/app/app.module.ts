@@ -14,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import {MatTabsModule} from '@angular/material/tabs';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
@@ -25,6 +25,15 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { UserBookingsComponent } from './user-bookings/user-bookings.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AdminComponent } from './admin/admin.component';
+import { AddcarComponent } from './admin/addcar/addcar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {A11yModule} from '@angular/cdk/a11y';
+
+
+
+
 
  
 @NgModule({
@@ -37,17 +46,24 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     CarDetailComponent,
     UserEditComponent,
     CheckoutComponent,
-    UserBookingsComponent
+    UserBookingsComponent,
+    AdminComponent,
+    AddcarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatTabsModule,
     FormsModule,
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes),
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    A11yModule
+    
   ],
   providers: [
     AuthService,

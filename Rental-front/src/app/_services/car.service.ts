@@ -24,6 +24,10 @@ constructor(private http : HttpClient) { }
   return this.http.get<Car>(this.baseUrl + 'car/' +id);
  }
 
+ addCar(carmodel:Car){
+  return this.http.post(this.baseUrl + 'car/add',carmodel);
+ }
+
  addSubscriptionTenure(tenure : number){
   this.months=tenure;
   sessionStorage.setItem("month",this.months.toLocaleString());
