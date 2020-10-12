@@ -22,7 +22,7 @@ namespace Rental.Controllers
         [HttpGet]
         public async Task<IActionResult> GetValues ()
         {
-            var value = await _context.TBL_USER.ToListAsync();
+            var value = await _context.TBL_USER.Include(p => p.A_BOOKING).ToListAsync();
 
             return Ok(value);
         }
@@ -31,7 +31,7 @@ namespace Rental.Controllers
         public async Task<IActionResult> GetValue(int id)
         {
             var value =await _context.TBL_USER.Include(p => p.A_BOOKING).FirstOrDefaultAsync(x => x.A_ID ==id );
-
+           
             return Ok(value);
         }
     }

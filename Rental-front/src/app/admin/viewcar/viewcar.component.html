@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        
+        <div class="col-4">
+            <div class="search-product mt-3">
+                <input class="form-control"
+                type="text"
+                name="search" [(ngModel)]="search" autocomplete="off"
+                placeholder="Search for a Car">
+            </div>
+        </div>
+        <div class="col-12">
+            
+          <table class="text-capitalize table mt-3">
+              <tr>
+                  <th>Car</th>
+                  <th>Price</th>
+                  <th>Seats</th>
+                  <th>Distance <br> &nbsp; (kms)</th>
+                  <th>Transmission</th>
+                  <th>Fuel</th>
+                  <th>Available</th>
+                  <th>Delete</th>
+                  <th>Edit</th>
+              </tr>
+              <tr *ngFor="let car of carValues | filter:search" >
+                <td>{{car.a_COMPANY}}  {{car.a_MODEL}}</td>
+                <td><i class="fa fa-inr"></i> {{car.a_PRICE}}</td>
+                <td>{{car.a_NUMBER_OF_SEATS}}</td>
+                <td>{{car.a_DISTANCE_DRIVEN}}</td>
+                <td>{{car.a_TRANSMISSION}}</td>
+                <td>{{car.a_FUEL_TYPE}}</td>
+                <td>{{car.a_IS_AVAILABLE}}</td>
+                <td><button [disabled]="!car.a_IS_AVAILABLE" class="btn btn-warning btn-sm" (click)="deleteCar([car.a_ID])">Delete Car</button></td>
+                <td><button [disabled]="!car.a_IS_AVAILABLE"  class="btn btn-secondary btn-sm" [routerLink]="['/edit', car.a_ID]"  >Edit Car</button></td>
+              </tr>
+          </table>
+            
+        </div>
+    </div>
+</div>

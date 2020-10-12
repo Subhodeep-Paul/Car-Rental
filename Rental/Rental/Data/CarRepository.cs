@@ -5,6 +5,7 @@ using Rental.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 
 namespace Rental.Data
@@ -23,6 +24,11 @@ namespace Rental.Data
             _context.TBL_CAR.Add(car);
         }
 
+        public void DeleteCar(Car car)
+        {
+            _context.TBL_CAR.Remove(car);
+        }
+
         public async Task<Car> UpdateAvailability(int id)
         {
             var car=await _context.TBL_CAR.FirstOrDefaultAsync(x => x.A_ID == id);
@@ -35,6 +41,20 @@ namespace Rental.Data
 
             return car;
 
+
+
+        }
+
+        public async Task<Car> UpdateDetails(int id, CarForUpdateDto carforupdate)
+        {
+            var car = await _context.TBL_CAR.FirstOrDefaultAsync(x => x.A_ID == id);
+            if (car != null)
+            {
+                car.A_PRICE = carforupdate.Price;
+                car.A_DISTANCE_DRIVEN = carforupdate.Distance;
+            }
+
+            return car;
 
 
         }
@@ -55,7 +75,7 @@ namespace Rental.Data
         {
             IQueryable<Car> query = _context.TBL_CAR;
             query = query.OrderBy(x => x.A_DISTANCE_DRIVEN);
-            return await query.ToArrayAsync();
+            return await query.Include(p => p.A_BOOKING).ToArrayAsync();
         }
 
 

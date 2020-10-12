@@ -1,4 +1,5 @@
-﻿using Rental.Models;
+﻿using Rental.DTO;
+using Rental.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,10 @@ namespace Rental.Data
         public Task<Car> GetCar(int id);
         public Task<Car> UpdateAvailability(int id);
         public void AddCar(Car car);
+
+        public void DeleteCar(Car car);
         public Task<bool> SaveChangesAsync();
+
+        public Task<Car> UpdateDetails(int id ,CarForUpdateDto carforupdatedto);
     }
 }

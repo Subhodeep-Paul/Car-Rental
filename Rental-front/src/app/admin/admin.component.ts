@@ -1,3 +1,4 @@
+import { AuthService } from './../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,12 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+
+  
   
 
-  constructor() { }
+  constructor(private authservice: AuthService) { }
 
   ngOnInit(): void {
+
+    
+
   }
+
+ 
 
   
   

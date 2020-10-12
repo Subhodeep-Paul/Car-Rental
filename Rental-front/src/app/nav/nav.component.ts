@@ -16,6 +16,9 @@ export class NavComponent implements OnInit {
 
   
   model:any ={};
+  user:User;
+  id:number;
+ 
   
   
 
@@ -26,7 +29,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
     
-
+ 
 
   }
 
@@ -35,6 +38,7 @@ export class NavComponent implements OnInit {
       
         this.alertify.success('Logged in successfully');
         this.authService.hideRegister=false;
+        
 
         
       }, error => {
@@ -46,7 +50,6 @@ export class NavComponent implements OnInit {
   }
 
   loggedIn(){
-    
    return this.authService.loggedIn();
   }
 
@@ -60,6 +63,22 @@ export class NavComponent implements OnInit {
     this.router.navigate(['/home']);
 
   }
+
+  isadmin(){
+    
+    this.authService.isAdmin();
+    return this.authService.admin;
+    
+  }
+
+  // isAdmin(){
+  //   this.authService.getUser(this.authService.decodedToken.nameid).subscribe(response => {
+  //     this.user=response;
+      
+  //   }, error => {
+  //     console.log(error);
+  //   });
+  // }
 
 
   }

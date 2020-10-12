@@ -1,3 +1,4 @@
+import { AlertifyService } from './../../_services/alertify.service';
 import { CarService } from './../../_services/car.service';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class AddcarComponent implements OnInit {
   carForm: FormGroup;
 
-  constructor(private fb:FormBuilder, private carservice:CarService) { }
+  constructor(private fb:FormBuilder, private carservice:CarService, private alertify : AlertifyService) { }
 
   ngOnInit(): void {
     this.createCarForm();
@@ -34,7 +35,8 @@ export class AddcarComponent implements OnInit {
 
   addCar(){
     this.carservice.addCar(this.carForm.value).subscribe(() => {
-      alert("Car added");
+      alert('Car added');
+      location.reload();
       this.carForm.reset();
     }, error => {
       console.log(error);

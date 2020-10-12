@@ -19,6 +19,10 @@ export class BookingService {
 
   }
 
+  delete(id){
+    return this.http.delete(this.baseUrl +id);
+  }
+
   getCar(id : number)
   {
       this.carid=id;

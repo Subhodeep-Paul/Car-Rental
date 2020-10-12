@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { User } from './../_models/user';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -26,5 +27,6 @@ export class UserService {
     this.id=id;
 
   }
+
 
 }

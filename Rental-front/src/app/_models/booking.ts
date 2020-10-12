@@ -6,6 +6,7 @@ export interface Booking {
     a_PRICE: number;
     a_TENURE:number;
     a_FK_CARID: number;
+    a_FK_USERID:number;
 
 
 }

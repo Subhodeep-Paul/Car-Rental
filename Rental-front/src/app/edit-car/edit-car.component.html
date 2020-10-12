@@ -1,0 +1,28 @@
+<div class="container"> 
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 mt-5">
+            <form [formGroup]="editForm" (ngSubmit)="update()">
+
+                <div class="form-group">
+                    <label for="dist">Distance Done :</label>
+                    <input  id="dist" [ngClass]="{'is-invalid': editForm.get('Distance').errors && editForm.get('Distance').touched}" class="form-control"
+                      placeholder="Distance" formControlName="Distance" type="number" >
+                    <div class="invalid-feedback" *ngIf="editForm.get('Distance').touched && editForm.get('Distance').hasError('required')">Distance done  is required</div>
+                  </div> 
+
+                  <div class="form-group">
+                    <label for="Price">Updated Price :</label>
+                    <input  id="Price" [ngClass]="{'is-invalid': editForm.get('Price').errors && editForm.get('Price').touched}" class="form-control"
+                      placeholder="Price" formControlName="Price" type="number" >
+                    <div class="invalid-feedback" *ngIf="editForm.get('Price').touched && editForm.get('Price').hasError('required')">Updated Price  is required</div>
+                  </div> 
+
+                  <button [disabled]="!editForm.valid"  class="btn btn-success mr-2"  type="submit">Update</button>
+                  <button class="btn btn-danger " [routerLink]="['/admin']"  >Cancel</button>
+
+            </form>
+        </div>
+    </div>
+</div>

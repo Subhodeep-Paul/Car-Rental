@@ -59,7 +59,8 @@ namespace Rental.Controllers
             
                 var userFromRepo = await _repo.Login(userForLoginDto.Email, 
                                                         userForLoginDto.Password,
-                                                            userForLoginDto.firstname);
+                                                            userForLoginDto.firstname,
+                                                            userForLoginDto.isadmin);
 
                 if (userFromRepo == null)
                     return Unauthorized();
@@ -68,7 +69,8 @@ namespace Rental.Controllers
                 {
                 new Claim(ClaimTypes.NameIdentifier , userFromRepo.A_ID.ToString()),
                 new Claim(ClaimTypes.Email ,userFromRepo.A_EMAIL),
-                new Claim(ClaimTypes.Name , userFromRepo.A_FIRST_NAME)
+                new Claim(ClaimTypes.Name , userFromRepo.A_FIRST_NAME),
+                new Claim(ClaimTypes.Role , userFromRepo.A_IS_ADMIN.ToString())
             };
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8

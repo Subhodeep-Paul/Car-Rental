@@ -1,3 +1,4 @@
+import { AlertifyService } from './../_services/alertify.service';
 import { CarService } from './../_services/car.service';
 import { Car } from './../_models/car';
 import { BookingService } from './../_services/booking.service';
@@ -16,7 +17,8 @@ export class UserBookingsComponent implements OnInit {
   carid:number;
   car:Car;
 
-  constructor(private route: ActivatedRoute, private bookingservice:BookingService, private carservice: CarService) { }
+  constructor(private route: ActivatedRoute, private bookingservice:BookingService, private carservice: CarService,
+    private alertify:AlertifyService) { }
 
   ngOnInit(): void {
     
@@ -48,6 +50,24 @@ export class UserBookingsComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+  }
+
+  deleteBooking(){
+
+    var c = confirm("Are you sure you want to delete this booking?");
+    if (c)
+      {
+        this.bookingservice.delete(this.user.a_BOOKING[0].a_ID).subscribe(() =>{
+          location.reload();
+         }, error => {
+           alert(error);
+         });
+
+        
+      }
+
+      this.carservice.update(this.user.a_BOOKING[0].a_FK_CARID).subscribe( );
+   
   }
 
 }

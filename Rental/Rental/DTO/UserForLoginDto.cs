@@ -16,5 +16,7 @@ namespace Rental.DTO
 
         public string firstname { get; set; }
 
+        public bool isadmin { get; set; }
+
     }
 }

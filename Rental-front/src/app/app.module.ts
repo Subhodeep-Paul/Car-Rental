@@ -1,3 +1,5 @@
+import { UserService } from './_services/User.service';
+import { BookingService } from './_services/booking.service';
 import { BookedCarResolver } from './_resolvers/booked-car.resolver';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
 import { CarDetailResolver } from './_resolvers/car-detail.resolver';
@@ -30,6 +32,8 @@ import { AddcarComponent } from './admin/addcar/addcar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {A11yModule} from '@angular/cdk/a11y';
+import { ViewcarComponent } from './admin/viewcar/viewcar.component';
+import { EditCarComponent } from './edit-car/edit-car.component';
 
 
 
@@ -48,7 +52,9 @@ import {A11yModule} from '@angular/cdk/a11y';
     CheckoutComponent,
     UserBookingsComponent,
     AdminComponent,
-    AddcarComponent
+    AddcarComponent,
+    ViewcarComponent,
+    EditCarComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +74,8 @@ import {A11yModule} from '@angular/cdk/a11y';
   providers: [
     AuthService,
     CarService,
+    BookingService,
+    UserService,
     CarDetailResolver,
     UserEditResolver,
     BookedCarResolver

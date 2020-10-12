@@ -1,3 +1,4 @@
+import { EditCarComponent } from './app/edit-car/edit-car.component';
 import { AdminComponent } from './app/admin/admin.component';
 import { AddcarComponent } from './app/admin/addcar/addcar.component';
 import { BookedCarResolver } from './app/_resolvers/booked-car.resolver';
@@ -7,6 +8,7 @@ import { UserEditResolver } from './app/_resolvers/user-edit.resolver';
 import { UserEditComponent } from './app/user-edit/user-edit.component';
 import { CarDetailResolver } from './app/_resolvers/car-detail.resolver';
 import { AuthGuard } from './app/_guards/auth.guard';
+import {AdminGuard} from './app/_guards/admin.guard';
 import { RegisterComponent } from './app/register/register.component';
 import { CarComponent } from './app/car/car.component';
 import { HomeComponent } from './app/home/home.component';
@@ -24,7 +26,8 @@ export const appRoutes : Routes = [
     {path : 'register', component : RegisterComponent } ,
     {path : 'bookings', component : UserBookingsComponent , canActivate:[AuthGuard],resolve: {user : UserEditResolver}} ,
     {path : 'checkout/:id', component : CheckoutComponent , canActivate:[AuthGuard],resolve: {userdetail : UserEditResolver, car: CarDetailResolver}},
-    {path : 'admin', component : AdminComponent},
+    {path : 'admin', component : AdminComponent ,canActivate:[AdminGuard]},
+    {path : 'edit/:id', component : EditCarComponent ,canActivate:[AdminGuard], resolve: {car : CarDetailResolver}},
    
    
 

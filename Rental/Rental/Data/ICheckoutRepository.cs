@@ -9,5 +9,10 @@ namespace Rental.Data
     public interface ICheckoutRepository
     {
         public Task<Booking> Book(Booking user);
+        public void DeleteBooking(Booking booking);
+
+        public Task<Booking> GetBooking(int id);
+        public Task<bool> SaveChangesAsync();
+       
     }
 }

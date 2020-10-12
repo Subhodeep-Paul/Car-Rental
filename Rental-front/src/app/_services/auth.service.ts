@@ -1,9 +1,12 @@
+import { UserService } from './User.service';
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+import { User } from '../_models/user';
 
 
 @Injectable({
@@ -14,6 +17,7 @@ export class AuthService {
   hideRegister =true;
   jwtHelper = new JwtHelperService();
   decodedToken : any;
+  admin:boolean;
 
   baseUrl =environment.apiUrl + 'auth/';
 
@@ -30,6 +34,7 @@ login(model:any){
         localStorage.setItem('token', user.token);
         this.decodedToken=this.jwtHelper.decodeToken(user.token);
         console.log(this.decodedToken);
+        
         
       }
     })
@@ -48,6 +53,22 @@ login(model:any){
     
   }
 
+  isAdmin(){
+    if(this.decodedToken.role =="True")
+        this.admin=true;
+        else
+        this.admin=false;
+  }
+ 
+
+
+ 
+
+
+    
+
+  }
+
   
 
-}
+

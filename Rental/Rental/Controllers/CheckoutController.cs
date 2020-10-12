@@ -57,5 +57,29 @@ namespace Rental.Controllers
             }
             return BadRequest();
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteBooking(int id)
+        {
+            try
+            {
+                var booking = await _repo.GetBooking(id);
+                if (booking == null) return NotFound();
+
+                _repo.DeleteBooking(booking);
+
+                if (await _repo.SaveChangesAsync())
+                {
+                    return Ok();
+                }
+                else
+                    return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
     }
 }

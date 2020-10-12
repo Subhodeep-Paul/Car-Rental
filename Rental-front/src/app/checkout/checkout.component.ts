@@ -79,26 +79,30 @@ export class CheckoutComponent implements OnInit {
 
       console.log(this.model);
 
-      this.bookservice.book(this.model).subscribe(() => {
-         console.log('booking done');
-         this.checkoutForm.reset();
-         this.alertify.success("Booking Done");
-      }, error => {
-        console.log(error);
-        this.alertify.error("Error");
-      }, () => {
-        this.router.navigate(['/bookings']);
-      })
+      var c = confirm("Confirm Booking ?");
 
-      
-      this.carservice.update(this.cardetails.a_ID).subscribe( response=>{
-        this.cardetails=response;
-        console.log(this.cardetails.a_ID);
-        console.log(this.cardetails.a_IS_AVAILABLE);
-       });
-
-      
-
+      if(c){
+        this.bookservice.book(this.model).subscribe(() => {
+          console.log('booking done');
+          this.checkoutForm.reset();
+          this.alertify.success("Booking Done");
+       }, error => {
+         console.log(error);
+         this.alertify.error("Error");
+       }, () => {
+         this.router.navigate(['/bookings']);
+       })
+ 
+       
+       this.carservice.update(this.cardetails.a_ID).subscribe( response=>{
+         this.cardetails=response;
+         console.log(this.cardetails.a_ID);
+         console.log(this.cardetails.a_IS_AVAILABLE);
+        });
+ 
+       
+ 
+      }
 
 
     }

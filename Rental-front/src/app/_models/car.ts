@@ -1,3 +1,5 @@
+import { Booking } from './booking';
+
 export interface Car {
 
     a_ID: number ;
@@ -9,6 +11,7 @@ export interface Car {
     a_TRANSMISSION: string;
     a_IS_AVAILABLE: boolean;
     a_PRICE : number;
+    a_BOOKING : Booking[];
 
     
 }

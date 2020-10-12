@@ -37,6 +37,14 @@ constructor(private http : HttpClient) { }
   return this.http.put<Car>(this.baseUrl + 'car/' +id, {});
  }
 
+ updateDetails(id, updatemodel:any):Observable<Car>{
+   return this.http.put<Car>(this.baseUrl +'car/edit/'+id , updatemodel);
+ }
+
+ delete(id){
+  return this.http.delete(this.baseUrl +'car/'+id);
+}
+
 
 
 

@@ -1,4 +1,5 @@
-﻿using Rental.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Rental.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,5 +26,23 @@ namespace Rental.Data
             
 
         }
+
+        public void DeleteBooking(Booking booking)
+        {
+            _context.TBL_BOOKING.Remove(booking);
+        }
+
+        public async Task<Booking> GetBooking(int id)
+        {
+            IQueryable<Booking> query = _context.TBL_BOOKING;
+
+            return await query.FirstOrDefaultAsync(x => x.A_ID == id);
+        }
+
+        public async Task<bool> SaveChangesAsync()
+        {
+            return (await _context.SaveChangesAsync()) > 0;
+        }
+
     }
 }

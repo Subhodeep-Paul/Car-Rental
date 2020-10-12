@@ -24,6 +24,13 @@ namespace Rental.Models
                 .ForMember(dest => dest.A_TRANSMISSION, opt => opt.MapFrom(src => src.Transmission))
                 .ForMember(dest => dest.A_PRICE, opt => opt.MapFrom(src => src.price))
                 .ReverseMap();
+
+            _ = CreateMap<CarForUpdateDto, Car>()
+                 .ForMember(dest => dest.A_DISTANCE_DRIVEN, opt => opt.MapFrom(src => src.Distance))
+                 .ForMember(dest => dest.A_PRICE, opt => opt.MapFrom(src => src.Price))
+                 .ReverseMap();
+
+
         }
     }
 }

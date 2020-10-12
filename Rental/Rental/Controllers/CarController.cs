@@ -40,15 +40,23 @@ namespace Rental.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAvailability(int id)
         {
-            var update= await _repo.UpdateAvailability(id);
+            var update = await _repo.UpdateAvailability(id);
             await _repo.SaveChangesAsync();
             return Ok(update);
-            
+
+        }
+
+        [HttpPut("edit/{id}")]
+        public async Task<IActionResult> Updatedetails(int id , CarForUpdateDto carforupdate)
+        {
+            var update = await _repo.UpdateDetails(id, carforupdate);
+            await _repo.SaveChangesAsync();
+            return Ok(update);
         }
 
 
         [HttpPost("Add")]
-        public async Task<IActionResult> PostCar(CarForAddDto carForAdd )
+        public async Task<IActionResult> PostCar(CarForAddDto carForAdd)
         {
             try
             {
@@ -70,6 +78,30 @@ namespace Rental.Controllers
                 return BadRequest(ex);
             }
             return BadRequest();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCar(int id)
+        {
+            try
+            {
+                var car = await _repo.GetCar(id);
+                if (car == null) return NotFound();
+
+                _repo.DeleteCar(car);
+
+                if (await _repo.SaveChangesAsync())
+                {
+                    return Ok();
+                }
+                else
+                    return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
         }
     }
 }

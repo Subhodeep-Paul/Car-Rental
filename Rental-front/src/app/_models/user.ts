@@ -7,6 +7,7 @@ export interface User {
     a_LAST_NAME: string; 
     a_EMAIL: string; 
     a_BOOKING : Booking[];
+    a_IS_ADMIN: boolean;
 
     
 }
